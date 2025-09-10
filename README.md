@@ -44,6 +44,19 @@ docker run -d --name logstash -p 5044:5044 logstash:7.17.10
 
 启动各组件后，可依次启动 `product-service`、`order-service`、`gateway-service` 三个应用。示例中为了便于演示，Nacos、Seata 等组件默认未启用快速失败，即使未启动相应组件也能运行，但相关功能将不可用。
 
+## 本地编译指南
+
+1. 安装 **JDK 17** 与 **Maven 3.8+**。
+2. 在项目根目录执行以下命令完成编译：
+
+   ```bash
+   mvn clean package
+   ```
+
+   如需跳过测试可以追加 `-DskipTests` 参数。
+
+编译成功后，各模块的可执行 JAR 文件会生成在对应子模块的 `target/` 目录中。
+
 ## 常用接口
 
 - `GET http://localhost:8081/product/1`：查询商品
